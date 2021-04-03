@@ -23,6 +23,16 @@ class _$UpcomingEventTearOff {
   GetMoreUpcoming getMore() {
     return const GetMoreUpcoming();
   }
+
+  Detail detail(MovieEntity movie) {
+    return Detail(
+      movie,
+    );
+  }
+
+  BackFromDetails backFromDetails() {
+    return const BackFromDetails();
+  }
 }
 
 /// @nodoc
@@ -34,12 +44,16 @@ mixin _$UpcomingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) detail,
+    required TResult Function() backFromDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? detail,
+    TResult Function()? backFromDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,12 +61,16 @@ mixin _$UpcomingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(StartedUpcoming value) started,
     required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(Detail value) detail,
+    required TResult Function(BackFromDetails value) backFromDetails,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartedUpcoming value)? started,
     TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(Detail value)? detail,
+    TResult Function(BackFromDetails value)? backFromDetails,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +142,8 @@ class _$StartedUpcoming
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) detail,
+    required TResult Function() backFromDetails,
   }) {
     return started();
   }
@@ -133,6 +153,8 @@ class _$StartedUpcoming
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? detail,
+    TResult Function()? backFromDetails,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -146,6 +168,8 @@ class _$StartedUpcoming
   TResult map<TResult extends Object?>({
     required TResult Function(StartedUpcoming value) started,
     required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(Detail value) detail,
+    required TResult Function(BackFromDetails value) backFromDetails,
   }) {
     return started(this);
   }
@@ -155,6 +179,8 @@ class _$StartedUpcoming
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartedUpcoming value)? started,
     TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(Detail value)? detail,
+    TResult Function(BackFromDetails value)? backFromDetails,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -217,6 +243,8 @@ class _$GetMoreUpcoming
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) detail,
+    required TResult Function() backFromDetails,
   }) {
     return getMore();
   }
@@ -226,6 +254,8 @@ class _$GetMoreUpcoming
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? detail,
+    TResult Function()? backFromDetails,
     required TResult orElse(),
   }) {
     if (getMore != null) {
@@ -239,6 +269,8 @@ class _$GetMoreUpcoming
   TResult map<TResult extends Object?>({
     required TResult Function(StartedUpcoming value) started,
     required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(Detail value) detail,
+    required TResult Function(BackFromDetails value) backFromDetails,
   }) {
     return getMore(this);
   }
@@ -248,6 +280,8 @@ class _$GetMoreUpcoming
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartedUpcoming value)? started,
     TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(Detail value)? detail,
+    TResult Function(BackFromDetails value)? backFromDetails,
     required TResult orElse(),
   }) {
     if (getMore != null) {
@@ -262,6 +296,244 @@ abstract class GetMoreUpcoming implements UpcomingEvent {
 }
 
 /// @nodoc
+abstract class $DetailCopyWith<$Res> {
+  factory $DetailCopyWith(Detail value, $Res Function(Detail) then) =
+      _$DetailCopyWithImpl<$Res>;
+  $Res call({MovieEntity movie});
+
+  $MovieEntityCopyWith<$Res> get movie;
+}
+
+/// @nodoc
+class _$DetailCopyWithImpl<$Res> extends _$UpcomingEventCopyWithImpl<$Res>
+    implements $DetailCopyWith<$Res> {
+  _$DetailCopyWithImpl(Detail _value, $Res Function(Detail) _then)
+      : super(_value, (v) => _then(v as Detail));
+
+  @override
+  Detail get _value => super._value as Detail;
+
+  @override
+  $Res call({
+    Object? movie = freezed,
+  }) {
+    return _then(Detail(
+      movie == freezed
+          ? _value.movie
+          : movie // ignore: cast_nullable_to_non_nullable
+              as MovieEntity,
+    ));
+  }
+
+  @override
+  $MovieEntityCopyWith<$Res> get movie {
+    return $MovieEntityCopyWith<$Res>(_value.movie, (value) {
+      return _then(_value.copyWith(movie: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$Detail with DiagnosticableTreeMixin implements Detail {
+  const _$Detail(this.movie);
+
+  @override
+  final MovieEntity movie;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpcomingEvent.detail(movie: $movie)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpcomingEvent.detail'))
+      ..add(DiagnosticsProperty('movie', movie));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Detail &&
+            (identical(other.movie, movie) ||
+                const DeepCollectionEquality().equals(other.movie, movie)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movie);
+
+  @JsonKey(ignore: true)
+  @override
+  $DetailCopyWith<Detail> get copyWith =>
+      _$DetailCopyWithImpl<Detail>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) detail,
+    required TResult Function() backFromDetails,
+  }) {
+    return detail(movie);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? detail,
+    TResult Function()? backFromDetails,
+    required TResult orElse(),
+  }) {
+    if (detail != null) {
+      return detail(movie);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartedUpcoming value) started,
+    required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(Detail value) detail,
+    required TResult Function(BackFromDetails value) backFromDetails,
+  }) {
+    return detail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartedUpcoming value)? started,
+    TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(Detail value)? detail,
+    TResult Function(BackFromDetails value)? backFromDetails,
+    required TResult orElse(),
+  }) {
+    if (detail != null) {
+      return detail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Detail implements UpcomingEvent {
+  const factory Detail(MovieEntity movie) = _$Detail;
+
+  MovieEntity get movie => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DetailCopyWith<Detail> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $BackFromDetailsCopyWith<$Res> {
+  factory $BackFromDetailsCopyWith(
+          BackFromDetails value, $Res Function(BackFromDetails) then) =
+      _$BackFromDetailsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$BackFromDetailsCopyWithImpl<$Res>
+    extends _$UpcomingEventCopyWithImpl<$Res>
+    implements $BackFromDetailsCopyWith<$Res> {
+  _$BackFromDetailsCopyWithImpl(
+      BackFromDetails _value, $Res Function(BackFromDetails) _then)
+      : super(_value, (v) => _then(v as BackFromDetails));
+
+  @override
+  BackFromDetails get _value => super._value as BackFromDetails;
+}
+
+/// @nodoc
+class _$BackFromDetails
+    with DiagnosticableTreeMixin
+    implements BackFromDetails {
+  const _$BackFromDetails();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpcomingEvent.backFromDetails()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpcomingEvent.backFromDetails'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is BackFromDetails);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) detail,
+    required TResult Function() backFromDetails,
+  }) {
+    return backFromDetails();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? detail,
+    TResult Function()? backFromDetails,
+    required TResult orElse(),
+  }) {
+    if (backFromDetails != null) {
+      return backFromDetails();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartedUpcoming value) started,
+    required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(Detail value) detail,
+    required TResult Function(BackFromDetails value) backFromDetails,
+  }) {
+    return backFromDetails(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartedUpcoming value)? started,
+    TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(Detail value)? detail,
+    TResult Function(BackFromDetails value)? backFromDetails,
+    required TResult orElse(),
+  }) {
+    if (backFromDetails != null) {
+      return backFromDetails(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BackFromDetails implements UpcomingEvent {
+  const factory BackFromDetails() = _$BackFromDetails;
+}
+
+/// @nodoc
 class _$UpcomingStateTearOff {
   const _$UpcomingStateTearOff();
 
@@ -269,11 +541,13 @@ class _$UpcomingStateTearOff {
       {Pagination pagination = const Pagination(),
       List<MovieEntity> movies = const [],
       GetUpcomingRequestStatus getUpcomingRequestStatus =
-          const GetUpcomingIdle()}) {
+          const GetUpcomingIdle(),
+      Flow flow = const Home()}) {
     return _UpcomingState(
       pagination: pagination,
       movies: movies,
       getUpcomingRequestStatus: getUpcomingRequestStatus,
+      flow: flow,
     );
   }
 }
@@ -287,6 +561,7 @@ mixin _$UpcomingState {
   List<MovieEntity> get movies => throw _privateConstructorUsedError;
   GetUpcomingRequestStatus get getUpcomingRequestStatus =>
       throw _privateConstructorUsedError;
+  Flow get flow => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpcomingStateCopyWith<UpcomingState> get copyWith =>
@@ -301,10 +576,12 @@ abstract class $UpcomingStateCopyWith<$Res> {
   $Res call(
       {Pagination pagination,
       List<MovieEntity> movies,
-      GetUpcomingRequestStatus getUpcomingRequestStatus});
+      GetUpcomingRequestStatus getUpcomingRequestStatus,
+      Flow flow});
 
   $PaginationCopyWith<$Res> get pagination;
   $GetUpcomingRequestStatusCopyWith<$Res> get getUpcomingRequestStatus;
+  $FlowCopyWith<$Res> get flow;
 }
 
 /// @nodoc
@@ -321,6 +598,7 @@ class _$UpcomingStateCopyWithImpl<$Res>
     Object? pagination = freezed,
     Object? movies = freezed,
     Object? getUpcomingRequestStatus = freezed,
+    Object? flow = freezed,
   }) {
     return _then(_value.copyWith(
       pagination: pagination == freezed
@@ -335,6 +613,10 @@ class _$UpcomingStateCopyWithImpl<$Res>
           ? _value.getUpcomingRequestStatus
           : getUpcomingRequestStatus // ignore: cast_nullable_to_non_nullable
               as GetUpcomingRequestStatus,
+      flow: flow == freezed
+          ? _value.flow
+          : flow // ignore: cast_nullable_to_non_nullable
+              as Flow,
     ));
   }
 
@@ -352,6 +634,13 @@ class _$UpcomingStateCopyWithImpl<$Res>
       return _then(_value.copyWith(getUpcomingRequestStatus: value));
     });
   }
+
+  @override
+  $FlowCopyWith<$Res> get flow {
+    return $FlowCopyWith<$Res>(_value.flow, (value) {
+      return _then(_value.copyWith(flow: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -364,12 +653,15 @@ abstract class _$UpcomingStateCopyWith<$Res>
   $Res call(
       {Pagination pagination,
       List<MovieEntity> movies,
-      GetUpcomingRequestStatus getUpcomingRequestStatus});
+      GetUpcomingRequestStatus getUpcomingRequestStatus,
+      Flow flow});
 
   @override
   $PaginationCopyWith<$Res> get pagination;
   @override
   $GetUpcomingRequestStatusCopyWith<$Res> get getUpcomingRequestStatus;
+  @override
+  $FlowCopyWith<$Res> get flow;
 }
 
 /// @nodoc
@@ -388,6 +680,7 @@ class __$UpcomingStateCopyWithImpl<$Res>
     Object? pagination = freezed,
     Object? movies = freezed,
     Object? getUpcomingRequestStatus = freezed,
+    Object? flow = freezed,
   }) {
     return _then(_UpcomingState(
       pagination: pagination == freezed
@@ -402,6 +695,10 @@ class __$UpcomingStateCopyWithImpl<$Res>
           ? _value.getUpcomingRequestStatus
           : getUpcomingRequestStatus // ignore: cast_nullable_to_non_nullable
               as GetUpcomingRequestStatus,
+      flow: flow == freezed
+          ? _value.flow
+          : flow // ignore: cast_nullable_to_non_nullable
+              as Flow,
     ));
   }
 }
@@ -411,7 +708,8 @@ class _$_UpcomingState with DiagnosticableTreeMixin implements _UpcomingState {
   const _$_UpcomingState(
       {this.pagination = const Pagination(),
       this.movies = const [],
-      this.getUpcomingRequestStatus = const GetUpcomingIdle()});
+      this.getUpcomingRequestStatus = const GetUpcomingIdle(),
+      this.flow = const Home()});
 
   @JsonKey(defaultValue: const Pagination())
   @override
@@ -422,10 +720,13 @@ class _$_UpcomingState with DiagnosticableTreeMixin implements _UpcomingState {
   @JsonKey(defaultValue: const GetUpcomingIdle())
   @override
   final GetUpcomingRequestStatus getUpcomingRequestStatus;
+  @JsonKey(defaultValue: const Home())
+  @override
+  final Flow flow;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpcomingState(pagination: $pagination, movies: $movies, getUpcomingRequestStatus: $getUpcomingRequestStatus)';
+    return 'UpcomingState(pagination: $pagination, movies: $movies, getUpcomingRequestStatus: $getUpcomingRequestStatus, flow: $flow)';
   }
 
   @override
@@ -436,7 +737,8 @@ class _$_UpcomingState with DiagnosticableTreeMixin implements _UpcomingState {
       ..add(DiagnosticsProperty('pagination', pagination))
       ..add(DiagnosticsProperty('movies', movies))
       ..add(DiagnosticsProperty(
-          'getUpcomingRequestStatus', getUpcomingRequestStatus));
+          'getUpcomingRequestStatus', getUpcomingRequestStatus))
+      ..add(DiagnosticsProperty('flow', flow));
   }
 
   @override
@@ -451,7 +753,10 @@ class _$_UpcomingState with DiagnosticableTreeMixin implements _UpcomingState {
             (identical(
                     other.getUpcomingRequestStatus, getUpcomingRequestStatus) ||
                 const DeepCollectionEquality().equals(
-                    other.getUpcomingRequestStatus, getUpcomingRequestStatus)));
+                    other.getUpcomingRequestStatus,
+                    getUpcomingRequestStatus)) &&
+            (identical(other.flow, flow) ||
+                const DeepCollectionEquality().equals(other.flow, flow)));
   }
 
   @override
@@ -459,7 +764,8 @@ class _$_UpcomingState with DiagnosticableTreeMixin implements _UpcomingState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(pagination) ^
       const DeepCollectionEquality().hash(movies) ^
-      const DeepCollectionEquality().hash(getUpcomingRequestStatus);
+      const DeepCollectionEquality().hash(getUpcomingRequestStatus) ^
+      const DeepCollectionEquality().hash(flow);
 
   @JsonKey(ignore: true)
   @override
@@ -471,7 +777,8 @@ abstract class _UpcomingState implements UpcomingState {
   const factory _UpcomingState(
       {Pagination pagination,
       List<MovieEntity> movies,
-      GetUpcomingRequestStatus getUpcomingRequestStatus}) = _$_UpcomingState;
+      GetUpcomingRequestStatus getUpcomingRequestStatus,
+      Flow flow}) = _$_UpcomingState;
 
   @override
   Pagination get pagination => throw _privateConstructorUsedError;
@@ -480,6 +787,8 @@ abstract class _UpcomingState implements UpcomingState {
   @override
   GetUpcomingRequestStatus get getUpcomingRequestStatus =>
       throw _privateConstructorUsedError;
+  @override
+  Flow get flow => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UpcomingStateCopyWith<_UpcomingState> get copyWith =>
@@ -1004,4 +1313,507 @@ class _$GetUpcomingSucceded
 
 abstract class GetUpcomingSucceded implements GetUpcomingRequestStatus {
   const factory GetUpcomingSucceded() = _$GetUpcomingSucceded;
+}
+
+/// @nodoc
+class _$FlowTearOff {
+  const _$FlowTearOff();
+
+  Home home() {
+    return const Home();
+  }
+
+  Upcoming upcoming() {
+    return const Upcoming();
+  }
+
+  Details details(MovieEntity movie) {
+    return Details(
+      movie,
+    );
+  }
+
+  Search search() {
+    return const Search();
+  }
+}
+
+/// @nodoc
+const $Flow = _$FlowTearOff();
+
+/// @nodoc
+mixin _$Flow {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function() upcoming,
+    required TResult Function(MovieEntity movie) details,
+    required TResult Function() search,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function()? upcoming,
+    TResult Function(MovieEntity movie)? details,
+    TResult Function()? search,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Home value) home,
+    required TResult Function(Upcoming value) upcoming,
+    required TResult Function(Details value) details,
+    required TResult Function(Search value) search,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Home value)? home,
+    TResult Function(Upcoming value)? upcoming,
+    TResult Function(Details value)? details,
+    TResult Function(Search value)? search,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FlowCopyWith<$Res> {
+  factory $FlowCopyWith(Flow value, $Res Function(Flow) then) =
+      _$FlowCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$FlowCopyWithImpl<$Res> implements $FlowCopyWith<$Res> {
+  _$FlowCopyWithImpl(this._value, this._then);
+
+  final Flow _value;
+  // ignore: unused_field
+  final $Res Function(Flow) _then;
+}
+
+/// @nodoc
+abstract class $HomeCopyWith<$Res> {
+  factory $HomeCopyWith(Home value, $Res Function(Home) then) =
+      _$HomeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$HomeCopyWithImpl<$Res> extends _$FlowCopyWithImpl<$Res>
+    implements $HomeCopyWith<$Res> {
+  _$HomeCopyWithImpl(Home _value, $Res Function(Home) _then)
+      : super(_value, (v) => _then(v as Home));
+
+  @override
+  Home get _value => super._value as Home;
+}
+
+/// @nodoc
+class _$Home with DiagnosticableTreeMixin implements Home {
+  const _$Home();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Flow.home()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'Flow.home'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Home);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function() upcoming,
+    required TResult Function(MovieEntity movie) details,
+    required TResult Function() search,
+  }) {
+    return home();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function()? upcoming,
+    TResult Function(MovieEntity movie)? details,
+    TResult Function()? search,
+    required TResult orElse(),
+  }) {
+    if (home != null) {
+      return home();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Home value) home,
+    required TResult Function(Upcoming value) upcoming,
+    required TResult Function(Details value) details,
+    required TResult Function(Search value) search,
+  }) {
+    return home(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Home value)? home,
+    TResult Function(Upcoming value)? upcoming,
+    TResult Function(Details value)? details,
+    TResult Function(Search value)? search,
+    required TResult orElse(),
+  }) {
+    if (home != null) {
+      return home(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Home implements Flow {
+  const factory Home() = _$Home;
+}
+
+/// @nodoc
+abstract class $UpcomingCopyWith<$Res> {
+  factory $UpcomingCopyWith(Upcoming value, $Res Function(Upcoming) then) =
+      _$UpcomingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpcomingCopyWithImpl<$Res> extends _$FlowCopyWithImpl<$Res>
+    implements $UpcomingCopyWith<$Res> {
+  _$UpcomingCopyWithImpl(Upcoming _value, $Res Function(Upcoming) _then)
+      : super(_value, (v) => _then(v as Upcoming));
+
+  @override
+  Upcoming get _value => super._value as Upcoming;
+}
+
+/// @nodoc
+class _$Upcoming with DiagnosticableTreeMixin implements Upcoming {
+  const _$Upcoming();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Flow.upcoming()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'Flow.upcoming'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Upcoming);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function() upcoming,
+    required TResult Function(MovieEntity movie) details,
+    required TResult Function() search,
+  }) {
+    return upcoming();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function()? upcoming,
+    TResult Function(MovieEntity movie)? details,
+    TResult Function()? search,
+    required TResult orElse(),
+  }) {
+    if (upcoming != null) {
+      return upcoming();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Home value) home,
+    required TResult Function(Upcoming value) upcoming,
+    required TResult Function(Details value) details,
+    required TResult Function(Search value) search,
+  }) {
+    return upcoming(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Home value)? home,
+    TResult Function(Upcoming value)? upcoming,
+    TResult Function(Details value)? details,
+    TResult Function(Search value)? search,
+    required TResult orElse(),
+  }) {
+    if (upcoming != null) {
+      return upcoming(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Upcoming implements Flow {
+  const factory Upcoming() = _$Upcoming;
+}
+
+/// @nodoc
+abstract class $DetailsCopyWith<$Res> {
+  factory $DetailsCopyWith(Details value, $Res Function(Details) then) =
+      _$DetailsCopyWithImpl<$Res>;
+  $Res call({MovieEntity movie});
+
+  $MovieEntityCopyWith<$Res> get movie;
+}
+
+/// @nodoc
+class _$DetailsCopyWithImpl<$Res> extends _$FlowCopyWithImpl<$Res>
+    implements $DetailsCopyWith<$Res> {
+  _$DetailsCopyWithImpl(Details _value, $Res Function(Details) _then)
+      : super(_value, (v) => _then(v as Details));
+
+  @override
+  Details get _value => super._value as Details;
+
+  @override
+  $Res call({
+    Object? movie = freezed,
+  }) {
+    return _then(Details(
+      movie == freezed
+          ? _value.movie
+          : movie // ignore: cast_nullable_to_non_nullable
+              as MovieEntity,
+    ));
+  }
+
+  @override
+  $MovieEntityCopyWith<$Res> get movie {
+    return $MovieEntityCopyWith<$Res>(_value.movie, (value) {
+      return _then(_value.copyWith(movie: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$Details with DiagnosticableTreeMixin implements Details {
+  const _$Details(this.movie);
+
+  @override
+  final MovieEntity movie;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Flow.details(movie: $movie)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Flow.details'))
+      ..add(DiagnosticsProperty('movie', movie));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is Details &&
+            (identical(other.movie, movie) ||
+                const DeepCollectionEquality().equals(other.movie, movie)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movie);
+
+  @JsonKey(ignore: true)
+  @override
+  $DetailsCopyWith<Details> get copyWith =>
+      _$DetailsCopyWithImpl<Details>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function() upcoming,
+    required TResult Function(MovieEntity movie) details,
+    required TResult Function() search,
+  }) {
+    return details(movie);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function()? upcoming,
+    TResult Function(MovieEntity movie)? details,
+    TResult Function()? search,
+    required TResult orElse(),
+  }) {
+    if (details != null) {
+      return details(movie);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Home value) home,
+    required TResult Function(Upcoming value) upcoming,
+    required TResult Function(Details value) details,
+    required TResult Function(Search value) search,
+  }) {
+    return details(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Home value)? home,
+    TResult Function(Upcoming value)? upcoming,
+    TResult Function(Details value)? details,
+    TResult Function(Search value)? search,
+    required TResult orElse(),
+  }) {
+    if (details != null) {
+      return details(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Details implements Flow {
+  const factory Details(MovieEntity movie) = _$Details;
+
+  MovieEntity get movie => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DetailsCopyWith<Details> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SearchCopyWith<$Res> {
+  factory $SearchCopyWith(Search value, $Res Function(Search) then) =
+      _$SearchCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SearchCopyWithImpl<$Res> extends _$FlowCopyWithImpl<$Res>
+    implements $SearchCopyWith<$Res> {
+  _$SearchCopyWithImpl(Search _value, $Res Function(Search) _then)
+      : super(_value, (v) => _then(v as Search));
+
+  @override
+  Search get _value => super._value as Search;
+}
+
+/// @nodoc
+class _$Search with DiagnosticableTreeMixin implements Search {
+  const _$Search();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Flow.search()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'Flow.search'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is Search);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function() upcoming,
+    required TResult Function(MovieEntity movie) details,
+    required TResult Function() search,
+  }) {
+    return search();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function()? upcoming,
+    TResult Function(MovieEntity movie)? details,
+    TResult Function()? search,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Home value) home,
+    required TResult Function(Upcoming value) upcoming,
+    required TResult Function(Details value) details,
+    required TResult Function(Search value) search,
+  }) {
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Home value)? home,
+    TResult Function(Upcoming value)? upcoming,
+    TResult Function(Details value)? details,
+    TResult Function(Search value)? search,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Search implements Flow {
+  const factory Search() = _$Search;
 }

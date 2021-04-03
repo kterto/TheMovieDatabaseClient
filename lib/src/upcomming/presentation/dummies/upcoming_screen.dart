@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tmdb_client_2/src/upcomming/domain/usecases/upcoming_usecase.dart';
+import 'package:tmdb_client_2/src/shared/domain/movie_entity.dart';
+import 'package:tmdb_client_2/src/upcomming/domain/usecases/upcoming/upcoming_usecase.dart';
 import 'package:tmdb_client_2/src/upcomming/presentation/widgets/movie_card_grid.dart';
 
 class UpcomingScreen extends StatelessWidget {
@@ -72,7 +73,7 @@ class UpcomingScreen extends StatelessWidget {
                   loading: true,
                   viewScroller: _scrollController,
                   moviesList: state.movies,
-                  onCardPressed: () => print('pertou'),
+                  onCardPressed: _onCardPressed,
                 ),
                 Positioned(
                   child: Offstage(
@@ -116,5 +117,9 @@ class UpcomingScreen extends StatelessWidget {
         },
       ),
     );
+  }
+
+  _onCardPressed(MovieEntity movie) {
+    _upcomingUsecase.add(Detail(movie));
   }
 }

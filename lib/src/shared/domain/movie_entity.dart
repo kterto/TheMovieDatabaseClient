@@ -13,7 +13,7 @@ class MovieEntity with _$MovieEntity {
     @Default('') String title,
     DateTime? releaseDate,
     @Default(0) double voteAverage,
-    @Default('') String overView,
+    @Default('') String overview,
     @Default(0) int id,
     @Default([]) List<Genre> genre,
   }) = _MovieEntity;

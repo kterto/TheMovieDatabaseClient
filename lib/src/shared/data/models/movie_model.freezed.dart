@@ -29,7 +29,7 @@ class _$MovieModelTearOff {
       @JsonKey(fromJson: _toDateTime)
           DateTime? releaseDate,
       double? voteAverage,
-      String? overView,
+      String? overview,
       int? id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           List<Genre>? genre}) {
@@ -41,7 +41,7 @@ class _$MovieModelTearOff {
       title: title,
       releaseDate: releaseDate,
       voteAverage: voteAverage,
-      overView: overView,
+      overview: overview,
       id: id,
       genre: genre,
     );
@@ -65,7 +65,7 @@ mixin _$MovieModel {
   @JsonKey(fromJson: _toDateTime)
   DateTime? get releaseDate => throw _privateConstructorUsedError;
   double? get voteAverage => throw _privateConstructorUsedError;
-  String? get overView => throw _privateConstructorUsedError;
+  String? get overview => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(
       name: "genre_ids",
@@ -93,7 +93,7 @@ abstract class $MovieModelCopyWith<$Res> {
       @JsonKey(fromJson: _toDateTime)
           DateTime? releaseDate,
       double? voteAverage,
-      String? overView,
+      String? overview,
       int? id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           List<Genre>? genre});
@@ -116,7 +116,7 @@ class _$MovieModelCopyWithImpl<$Res> implements $MovieModelCopyWith<$Res> {
     Object? title = freezed,
     Object? releaseDate = freezed,
     Object? voteAverage = freezed,
-    Object? overView = freezed,
+    Object? overview = freezed,
     Object? id = freezed,
     Object? genre = freezed,
   }) {
@@ -149,9 +149,9 @@ class _$MovieModelCopyWithImpl<$Res> implements $MovieModelCopyWith<$Res> {
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
               as double?,
-      overView: overView == freezed
-          ? _value.overView
-          : overView // ignore: cast_nullable_to_non_nullable
+      overview: overview == freezed
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
               as String?,
       id: id == freezed
           ? _value.id
@@ -180,7 +180,7 @@ abstract class _$MovieModelCopyWith<$Res> implements $MovieModelCopyWith<$Res> {
       @JsonKey(fromJson: _toDateTime)
           DateTime? releaseDate,
       double? voteAverage,
-      String? overView,
+      String? overview,
       int? id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           List<Genre>? genre});
@@ -205,7 +205,7 @@ class __$MovieModelCopyWithImpl<$Res> extends _$MovieModelCopyWithImpl<$Res>
     Object? title = freezed,
     Object? releaseDate = freezed,
     Object? voteAverage = freezed,
-    Object? overView = freezed,
+    Object? overview = freezed,
     Object? id = freezed,
     Object? genre = freezed,
   }) {
@@ -238,9 +238,9 @@ class __$MovieModelCopyWithImpl<$Res> extends _$MovieModelCopyWithImpl<$Res>
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
               as double?,
-      overView: overView == freezed
-          ? _value.overView
-          : overView // ignore: cast_nullable_to_non_nullable
+      overview: overview == freezed
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
               as String?,
       id: id == freezed
           ? _value.id
@@ -267,7 +267,7 @@ class _$_MovieModel extends _MovieModel {
       @JsonKey(fromJson: _toDateTime)
           this.releaseDate,
       this.voteAverage,
-      this.overView,
+      this.overview,
       this.id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           this.genre})
@@ -292,7 +292,7 @@ class _$_MovieModel extends _MovieModel {
   @override
   final double? voteAverage;
   @override
-  final String? overView;
+  final String? overview;
   @override
   final int? id;
   @override
@@ -304,7 +304,7 @@ class _$_MovieModel extends _MovieModel {
 
   @override
   String toString() {
-    return 'MovieModel(posterPath: $posterPath, backdropPath: $backdropPath, originalLanguage: $originalLanguage, originalTitle: $originalTitle, title: $title, releaseDate: $releaseDate, voteAverage: $voteAverage, overView: $overView, id: $id, genre: $genre)';
+    return 'MovieModel(posterPath: $posterPath, backdropPath: $backdropPath, originalLanguage: $originalLanguage, originalTitle: $originalTitle, title: $title, releaseDate: $releaseDate, voteAverage: $voteAverage, overview: $overview, id: $id, genre: $genre)';
   }
 
   @override
@@ -331,9 +331,9 @@ class _$_MovieModel extends _MovieModel {
             (identical(other.voteAverage, voteAverage) ||
                 const DeepCollectionEquality()
                     .equals(other.voteAverage, voteAverage)) &&
-            (identical(other.overView, overView) ||
+            (identical(other.overview, overview) ||
                 const DeepCollectionEquality()
-                    .equals(other.overView, overView)) &&
+                    .equals(other.overview, overview)) &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.genre, genre) ||
@@ -350,7 +350,7 @@ class _$_MovieModel extends _MovieModel {
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(releaseDate) ^
       const DeepCollectionEquality().hash(voteAverage) ^
-      const DeepCollectionEquality().hash(overView) ^
+      const DeepCollectionEquality().hash(overview) ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(genre);
 
@@ -375,7 +375,7 @@ abstract class _MovieModel extends MovieModel {
       @JsonKey(fromJson: _toDateTime)
           DateTime? releaseDate,
       double? voteAverage,
-      String? overView,
+      String? overview,
       int? id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           List<Genre>? genre}) = _$_MovieModel;
@@ -400,7 +400,7 @@ abstract class _MovieModel extends MovieModel {
   @override
   double? get voteAverage => throw _privateConstructorUsedError;
   @override
-  String? get overView => throw _privateConstructorUsedError;
+  String? get overview => throw _privateConstructorUsedError;
   @override
   int? get id => throw _privateConstructorUsedError;
   @override

@@ -5,6 +5,8 @@ import 'package:tmdb_client_2/src/shared/data/types/result.dart';
 import 'package:tmdb_client_2/src/shared/domain/movie_entity.dart';
 import 'package:tmdb_client_2/src/shared/errors/app_error.dart';
 import 'package:tmdb_client_2/src/shared/errors/http_error.dart';
+import 'package:tmdb_client_2/src/upcomming/data/models/backdrops_model.dart';
+import 'package:tmdb_client_2/src/upcomming/domain/entities/backdrops_entity.dart';
 import 'package:tmdb_client_2/src/upcomming/domain/entities/upcoming_response.dart';
 
 class MovieRepository {
@@ -49,6 +51,40 @@ class MovieRepository {
       );
     } else {
       return Failure(HttpNotFoundError());
+    }
+  }
+
+  Future<Result<BackdropsEntity>> getBackDrops(int id) async {
+    try {
+      Result response = await _httpClient.get(
+        url: 'movie/$id/images',
+      );
+
+      return response.handle(
+        onSuccess: (data) {
+          List? results = data['backdrops'];
+
+          if (results != null) {
+            BackdropsEntity backdropsEntity = BackdropsModel(
+              backdrops: results
+                  .map<BackdropModel>(
+                    (e) => BackdropModel.fromJson(e),
+                  )
+                  .toList(),
+            ).toDomain();
+
+            return Success(backdropsEntity);
+          } else {
+            return Failure(
+              HttpNotFoundError(slug: 'Não há previsualização disponível'),
+            );
+          }
+        },
+        onFailure: (error) => Failure(error),
+      );
+    } catch (e) {
+      print('[MovieRepository][getDropdowns][exception]: $e');
+      return Failure(AppUnknownError(slug: e.toString()));
     }
   }
 }

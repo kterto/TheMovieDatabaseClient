@@ -4,7 +4,7 @@ import 'movie_card.dart';
 
 class MoviesCardGrid extends StatelessWidget {
   final List<MovieEntity> moviesList;
-  final Function onCardPressed;
+  final void Function(MovieEntity) onCardPressed;
   final double height;
   final ScrollController? viewScroller;
   final int page;
@@ -42,7 +42,7 @@ class MoviesCardGrid extends StatelessWidget {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              print('pertou');
+              onCardPressed(moviesList[index]);
             },
             child: MovieCard(
               title: moviesList[index].title,

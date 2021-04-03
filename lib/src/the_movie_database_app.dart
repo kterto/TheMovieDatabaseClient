@@ -23,6 +23,7 @@ class _TheMovieDatabaseAppState extends State<TheMovieDatabaseApp> {
       title: 'The Movie Database Client',
       home: UpcomingListSmartView(
         upcomingUsecase: di(),
+        detailsUsecase: di(),
       ),
     );
   }

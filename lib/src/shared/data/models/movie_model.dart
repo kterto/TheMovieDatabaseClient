@@ -5,7 +5,7 @@ import 'package:tmdb_client_2/src/shared/domain/movie_entity.dart';
 part 'movie_model.freezed.dart';
 part 'movie_model.g.dart';
 
-const String _BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original/";
+const String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original/";
 
 @freezed
 class MovieModel with _$MovieModel {
@@ -19,7 +19,7 @@ class MovieModel with _$MovieModel {
     String? title,
     @JsonKey(fromJson: _toDateTime) DateTime? releaseDate,
     double? voteAverage,
-    String? overView,
+    String? overview,
     int? id,
     @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
         List<Genre>? genre,
@@ -30,14 +30,14 @@ class MovieModel with _$MovieModel {
 
   MovieEntity toDomain() {
     return MovieEntity(
-      posterPath: posterPath != null ? _BASE_IMAGE_URL + posterPath! : '',
-      backdropPath: backdropPath != null ? _BASE_IMAGE_URL + backdropPath! : '',
+      posterPath: posterPath != null ? BASE_IMAGE_URL + posterPath! : '',
+      backdropPath: backdropPath != null ? BASE_IMAGE_URL + backdropPath! : '',
       originalLanguage: originalLanguage ?? '',
       originalTitle: originalTitle ?? '',
       title: title ?? '',
       releaseDate: releaseDate,
       voteAverage: voteAverage ?? 0,
-      overView: overView ?? '',
+      overview: overview ?? '',
       id: id ?? 0,
       genre: genre ?? [],
     );

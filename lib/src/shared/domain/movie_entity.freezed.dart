@@ -24,7 +24,7 @@ class _$MovieEntityTearOff {
       String title = '',
       DateTime? releaseDate,
       double voteAverage = 0,
-      String overView = '',
+      String overview = '',
       int id = 0,
       List<Genre> genre = const []}) {
     return _MovieEntity(
@@ -35,7 +35,7 @@ class _$MovieEntityTearOff {
       title: title,
       releaseDate: releaseDate,
       voteAverage: voteAverage,
-      overView: overView,
+      overview: overview,
       id: id,
       genre: genre,
     );
@@ -54,7 +54,7 @@ mixin _$MovieEntity {
   String get title => throw _privateConstructorUsedError;
   DateTime? get releaseDate => throw _privateConstructorUsedError;
   double get voteAverage => throw _privateConstructorUsedError;
-  String get overView => throw _privateConstructorUsedError;
+  String get overview => throw _privateConstructorUsedError;
   int get id => throw _privateConstructorUsedError;
   List<Genre> get genre => throw _privateConstructorUsedError;
 
@@ -76,7 +76,7 @@ abstract class $MovieEntityCopyWith<$Res> {
       String title,
       DateTime? releaseDate,
       double voteAverage,
-      String overView,
+      String overview,
       int id,
       List<Genre> genre});
 }
@@ -98,7 +98,7 @@ class _$MovieEntityCopyWithImpl<$Res> implements $MovieEntityCopyWith<$Res> {
     Object? title = freezed,
     Object? releaseDate = freezed,
     Object? voteAverage = freezed,
-    Object? overView = freezed,
+    Object? overview = freezed,
     Object? id = freezed,
     Object? genre = freezed,
   }) {
@@ -131,9 +131,9 @@ class _$MovieEntityCopyWithImpl<$Res> implements $MovieEntityCopyWith<$Res> {
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
               as double,
-      overView: overView == freezed
-          ? _value.overView
-          : overView // ignore: cast_nullable_to_non_nullable
+      overview: overview == freezed
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
               as String,
       id: id == freezed
           ? _value.id
@@ -162,7 +162,7 @@ abstract class _$MovieEntityCopyWith<$Res>
       String title,
       DateTime? releaseDate,
       double voteAverage,
-      String overView,
+      String overview,
       int id,
       List<Genre> genre});
 }
@@ -186,7 +186,7 @@ class __$MovieEntityCopyWithImpl<$Res> extends _$MovieEntityCopyWithImpl<$Res>
     Object? title = freezed,
     Object? releaseDate = freezed,
     Object? voteAverage = freezed,
-    Object? overView = freezed,
+    Object? overview = freezed,
     Object? id = freezed,
     Object? genre = freezed,
   }) {
@@ -219,9 +219,9 @@ class __$MovieEntityCopyWithImpl<$Res> extends _$MovieEntityCopyWithImpl<$Res>
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
               as double,
-      overView: overView == freezed
-          ? _value.overView
-          : overView // ignore: cast_nullable_to_non_nullable
+      overview: overview == freezed
+          ? _value.overview
+          : overview // ignore: cast_nullable_to_non_nullable
               as String,
       id: id == freezed
           ? _value.id
@@ -245,7 +245,7 @@ class _$_MovieEntity implements _MovieEntity {
       this.title = '',
       this.releaseDate,
       this.voteAverage = 0,
-      this.overView = '',
+      this.overview = '',
       this.id = 0,
       this.genre = const []});
 
@@ -271,7 +271,7 @@ class _$_MovieEntity implements _MovieEntity {
   final double voteAverage;
   @JsonKey(defaultValue: '')
   @override
-  final String overView;
+  final String overview;
   @JsonKey(defaultValue: 0)
   @override
   final int id;
@@ -281,7 +281,7 @@ class _$_MovieEntity implements _MovieEntity {
 
   @override
   String toString() {
-    return 'MovieEntity(posterPath: $posterPath, backdropPath: $backdropPath, originalLanguage: $originalLanguage, originalTitle: $originalTitle, title: $title, releaseDate: $releaseDate, voteAverage: $voteAverage, overView: $overView, id: $id, genre: $genre)';
+    return 'MovieEntity(posterPath: $posterPath, backdropPath: $backdropPath, originalLanguage: $originalLanguage, originalTitle: $originalTitle, title: $title, releaseDate: $releaseDate, voteAverage: $voteAverage, overview: $overview, id: $id, genre: $genre)';
   }
 
   @override
@@ -308,9 +308,9 @@ class _$_MovieEntity implements _MovieEntity {
             (identical(other.voteAverage, voteAverage) ||
                 const DeepCollectionEquality()
                     .equals(other.voteAverage, voteAverage)) &&
-            (identical(other.overView, overView) ||
+            (identical(other.overview, overview) ||
                 const DeepCollectionEquality()
-                    .equals(other.overView, overView)) &&
+                    .equals(other.overview, overview)) &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.genre, genre) ||
@@ -327,7 +327,7 @@ class _$_MovieEntity implements _MovieEntity {
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(releaseDate) ^
       const DeepCollectionEquality().hash(voteAverage) ^
-      const DeepCollectionEquality().hash(overView) ^
+      const DeepCollectionEquality().hash(overview) ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(genre);
 
@@ -346,7 +346,7 @@ abstract class _MovieEntity implements MovieEntity {
       String title,
       DateTime? releaseDate,
       double voteAverage,
-      String overView,
+      String overview,
       int id,
       List<Genre> genre}) = _$_MovieEntity;
 
@@ -365,7 +365,7 @@ abstract class _MovieEntity implements MovieEntity {
   @override
   double get voteAverage => throw _privateConstructorUsedError;
   @override
-  String get overView => throw _privateConstructorUsedError;
+  String get overview => throw _privateConstructorUsedError;
   @override
   int get id => throw _privateConstructorUsedError;
   @override

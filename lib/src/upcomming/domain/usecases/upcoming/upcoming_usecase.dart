@@ -22,7 +22,12 @@ class UpcomingUsecase extends Bloc<UpcomingEvent, UpcomingState> {
 
   @override
   Stream<UpcomingState> mapEventToState(UpcomingEvent event) async* {
-    yield* event.map(started: _onStarted, getMore: _onGetMore);
+    yield* event.map(
+      started: _onStarted,
+      getMore: _onGetMore,
+      detail: _onDetail,
+      backFromDetails: _onBackFromDetails,
+    );
   }
 
   Stream<UpcomingState> _onStarted(StartedUpcoming event) async* {
@@ -32,7 +37,6 @@ class UpcomingUsecase extends Bloc<UpcomingEvent, UpcomingState> {
   }
 
   Stream<UpcomingState> _onGetMore(GetMoreUpcoming value) async* {
-    print('[_onGetMore][pagination.page]: ${state.pagination.page}');
     int currentPage = state.pagination.page + 1;
 
     if (state.getUpcomingRequestStatus is! GetUpcomingInProgress) {
@@ -42,11 +46,8 @@ class UpcomingUsecase extends Bloc<UpcomingEvent, UpcomingState> {
           page: currentPage,
         ),
       );
-      print('[_onGetMore][currentPage]: $currentPage');
 
       if (currentPage <= state.pagination.totalPages) {
-        print(
-            '[_onGetMore][state.pagination.page <= state.pagination.totalPages]: ${state.pagination.page <= state.pagination.totalPages}');
         yield* _getUpcomingPage(currentPage);
       }
     }
@@ -70,5 +71,15 @@ class UpcomingUsecase extends Bloc<UpcomingEvent, UpcomingState> {
         );
       },
     );
+  }
+
+  Stream<UpcomingState> _onDetail(Detail event) async* {
+    yield state.copyWith(
+      flow: Details(event.movie),
+    );
+  }
+
+  Stream<UpcomingState> _onBackFromDetails(BackFromDetails event) async* {
+    yield state.copyWith(flow: Upcoming());
   }
 }
