@@ -23,6 +23,16 @@ class _$UpcomingEventTearOff {
   GetMoreUpcoming getMore() {
     return const GetMoreUpcoming();
   }
+
+  SelectMovie selectMovie({required MovieEntity movie}) {
+    return SelectMovie(
+      movie: movie,
+    );
+  }
+
+  SearchPressed searchPressed() {
+    return const SearchPressed();
+  }
 }
 
 /// @nodoc
@@ -34,12 +44,16 @@ mixin _$UpcomingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) selectMovie,
+    required TResult Function() searchPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? selectMovie,
+    TResult Function()? searchPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,12 +61,16 @@ mixin _$UpcomingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(StartedUpcoming value) started,
     required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(SelectMovie value) selectMovie,
+    required TResult Function(SearchPressed value) searchPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartedUpcoming value)? started,
     TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(SelectMovie value)? selectMovie,
+    TResult Function(SearchPressed value)? searchPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +142,8 @@ class _$StartedUpcoming
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) selectMovie,
+    required TResult Function() searchPressed,
   }) {
     return started();
   }
@@ -133,6 +153,8 @@ class _$StartedUpcoming
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? selectMovie,
+    TResult Function()? searchPressed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -146,6 +168,8 @@ class _$StartedUpcoming
   TResult map<TResult extends Object?>({
     required TResult Function(StartedUpcoming value) started,
     required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(SelectMovie value) selectMovie,
+    required TResult Function(SearchPressed value) searchPressed,
   }) {
     return started(this);
   }
@@ -155,6 +179,8 @@ class _$StartedUpcoming
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartedUpcoming value)? started,
     TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(SelectMovie value)? selectMovie,
+    TResult Function(SearchPressed value)? searchPressed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -217,6 +243,8 @@ class _$GetMoreUpcoming
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) selectMovie,
+    required TResult Function() searchPressed,
   }) {
     return getMore();
   }
@@ -226,6 +254,8 @@ class _$GetMoreUpcoming
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? selectMovie,
+    TResult Function()? searchPressed,
     required TResult orElse(),
   }) {
     if (getMore != null) {
@@ -239,6 +269,8 @@ class _$GetMoreUpcoming
   TResult map<TResult extends Object?>({
     required TResult Function(StartedUpcoming value) started,
     required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(SelectMovie value) selectMovie,
+    required TResult Function(SearchPressed value) searchPressed,
   }) {
     return getMore(this);
   }
@@ -248,6 +280,8 @@ class _$GetMoreUpcoming
   TResult maybeMap<TResult extends Object?>({
     TResult Function(StartedUpcoming value)? started,
     TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(SelectMovie value)? selectMovie,
+    TResult Function(SearchPressed value)? searchPressed,
     required TResult orElse(),
   }) {
     if (getMore != null) {
@@ -262,18 +296,257 @@ abstract class GetMoreUpcoming implements UpcomingEvent {
 }
 
 /// @nodoc
+abstract class $SelectMovieCopyWith<$Res> {
+  factory $SelectMovieCopyWith(
+          SelectMovie value, $Res Function(SelectMovie) then) =
+      _$SelectMovieCopyWithImpl<$Res>;
+  $Res call({MovieEntity movie});
+
+  $MovieEntityCopyWith<$Res> get movie;
+}
+
+/// @nodoc
+class _$SelectMovieCopyWithImpl<$Res> extends _$UpcomingEventCopyWithImpl<$Res>
+    implements $SelectMovieCopyWith<$Res> {
+  _$SelectMovieCopyWithImpl(
+      SelectMovie _value, $Res Function(SelectMovie) _then)
+      : super(_value, (v) => _then(v as SelectMovie));
+
+  @override
+  SelectMovie get _value => super._value as SelectMovie;
+
+  @override
+  $Res call({
+    Object? movie = freezed,
+  }) {
+    return _then(SelectMovie(
+      movie: movie == freezed
+          ? _value.movie
+          : movie // ignore: cast_nullable_to_non_nullable
+              as MovieEntity,
+    ));
+  }
+
+  @override
+  $MovieEntityCopyWith<$Res> get movie {
+    return $MovieEntityCopyWith<$Res>(_value.movie, (value) {
+      return _then(_value.copyWith(movie: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$SelectMovie with DiagnosticableTreeMixin implements SelectMovie {
+  const _$SelectMovie({required this.movie});
+
+  @override
+  final MovieEntity movie;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpcomingEvent.selectMovie(movie: $movie)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpcomingEvent.selectMovie'))
+      ..add(DiagnosticsProperty('movie', movie));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SelectMovie &&
+            (identical(other.movie, movie) ||
+                const DeepCollectionEquality().equals(other.movie, movie)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movie);
+
+  @JsonKey(ignore: true)
+  @override
+  $SelectMovieCopyWith<SelectMovie> get copyWith =>
+      _$SelectMovieCopyWithImpl<SelectMovie>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) selectMovie,
+    required TResult Function() searchPressed,
+  }) {
+    return selectMovie(movie);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? selectMovie,
+    TResult Function()? searchPressed,
+    required TResult orElse(),
+  }) {
+    if (selectMovie != null) {
+      return selectMovie(movie);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartedUpcoming value) started,
+    required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(SelectMovie value) selectMovie,
+    required TResult Function(SearchPressed value) searchPressed,
+  }) {
+    return selectMovie(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartedUpcoming value)? started,
+    TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(SelectMovie value)? selectMovie,
+    TResult Function(SearchPressed value)? searchPressed,
+    required TResult orElse(),
+  }) {
+    if (selectMovie != null) {
+      return selectMovie(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SelectMovie implements UpcomingEvent {
+  const factory SelectMovie({required MovieEntity movie}) = _$SelectMovie;
+
+  MovieEntity get movie => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SelectMovieCopyWith<SelectMovie> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SearchPressedCopyWith<$Res> {
+  factory $SearchPressedCopyWith(
+          SearchPressed value, $Res Function(SearchPressed) then) =
+      _$SearchPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SearchPressedCopyWithImpl<$Res>
+    extends _$UpcomingEventCopyWithImpl<$Res>
+    implements $SearchPressedCopyWith<$Res> {
+  _$SearchPressedCopyWithImpl(
+      SearchPressed _value, $Res Function(SearchPressed) _then)
+      : super(_value, (v) => _then(v as SearchPressed));
+
+  @override
+  SearchPressed get _value => super._value as SearchPressed;
+}
+
+/// @nodoc
+class _$SearchPressed with DiagnosticableTreeMixin implements SearchPressed {
+  const _$SearchPressed();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpcomingEvent.searchPressed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'UpcomingEvent.searchPressed'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SearchPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getMore,
+    required TResult Function(MovieEntity movie) selectMovie,
+    required TResult Function() searchPressed,
+  }) {
+    return searchPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getMore,
+    TResult Function(MovieEntity movie)? selectMovie,
+    TResult Function()? searchPressed,
+    required TResult orElse(),
+  }) {
+    if (searchPressed != null) {
+      return searchPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StartedUpcoming value) started,
+    required TResult Function(GetMoreUpcoming value) getMore,
+    required TResult Function(SelectMovie value) selectMovie,
+    required TResult Function(SearchPressed value) searchPressed,
+  }) {
+    return searchPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StartedUpcoming value)? started,
+    TResult Function(GetMoreUpcoming value)? getMore,
+    TResult Function(SelectMovie value)? selectMovie,
+    TResult Function(SearchPressed value)? searchPressed,
+    required TResult orElse(),
+  }) {
+    if (searchPressed != null) {
+      return searchPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SearchPressed implements UpcomingEvent {
+  const factory SearchPressed() = _$SearchPressed;
+}
+
+/// @nodoc
 class _$UpcomingStateTearOff {
   const _$UpcomingStateTearOff();
 
   _UpcomingState call(
-      {Pagination pagination = const Pagination(),
-      List<MovieEntity> movies = const [],
-      GetUpcomingRequestStatus getUpcomingRequestStatus =
-          const GetUpcomingIdle()}) {
+      {required RequestStatus<UpcomingResponse> getUpcomingRequestStatus,
+      required UpcomingAction action,
+      required Pagination pagination,
+      required List<MovieEntity> movies}) {
     return _UpcomingState(
+      getUpcomingRequestStatus: getUpcomingRequestStatus,
+      action: action,
       pagination: pagination,
       movies: movies,
-      getUpcomingRequestStatus: getUpcomingRequestStatus,
     );
   }
 }
@@ -283,10 +556,11 @@ const $UpcomingState = _$UpcomingStateTearOff();
 
 /// @nodoc
 mixin _$UpcomingState {
+  RequestStatus<UpcomingResponse> get getUpcomingRequestStatus =>
+      throw _privateConstructorUsedError;
+  UpcomingAction get action => throw _privateConstructorUsedError;
   Pagination get pagination => throw _privateConstructorUsedError;
   List<MovieEntity> get movies => throw _privateConstructorUsedError;
-  GetUpcomingRequestStatus get getUpcomingRequestStatus =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpcomingStateCopyWith<UpcomingState> get copyWith =>
@@ -299,12 +573,14 @@ abstract class $UpcomingStateCopyWith<$Res> {
           UpcomingState value, $Res Function(UpcomingState) then) =
       _$UpcomingStateCopyWithImpl<$Res>;
   $Res call(
-      {Pagination pagination,
-      List<MovieEntity> movies,
-      GetUpcomingRequestStatus getUpcomingRequestStatus});
+      {RequestStatus<UpcomingResponse> getUpcomingRequestStatus,
+      UpcomingAction action,
+      Pagination pagination,
+      List<MovieEntity> movies});
 
+  $RequestStatusCopyWith<UpcomingResponse, $Res> get getUpcomingRequestStatus;
+  $UpcomingActionCopyWith<$Res> get action;
   $PaginationCopyWith<$Res> get pagination;
-  $GetUpcomingRequestStatusCopyWith<$Res> get getUpcomingRequestStatus;
 }
 
 /// @nodoc
@@ -318,11 +594,20 @@ class _$UpcomingStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? getUpcomingRequestStatus = freezed,
+    Object? action = freezed,
     Object? pagination = freezed,
     Object? movies = freezed,
-    Object? getUpcomingRequestStatus = freezed,
   }) {
     return _then(_value.copyWith(
+      getUpcomingRequestStatus: getUpcomingRequestStatus == freezed
+          ? _value.getUpcomingRequestStatus
+          : getUpcomingRequestStatus // ignore: cast_nullable_to_non_nullable
+              as RequestStatus<UpcomingResponse>,
+      action: action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as UpcomingAction,
       pagination: pagination == freezed
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
@@ -331,25 +616,28 @@ class _$UpcomingStateCopyWithImpl<$Res>
           ? _value.movies
           : movies // ignore: cast_nullable_to_non_nullable
               as List<MovieEntity>,
-      getUpcomingRequestStatus: getUpcomingRequestStatus == freezed
-          ? _value.getUpcomingRequestStatus
-          : getUpcomingRequestStatus // ignore: cast_nullable_to_non_nullable
-              as GetUpcomingRequestStatus,
     ));
+  }
+
+  @override
+  $RequestStatusCopyWith<UpcomingResponse, $Res> get getUpcomingRequestStatus {
+    return $RequestStatusCopyWith<UpcomingResponse, $Res>(
+        _value.getUpcomingRequestStatus, (value) {
+      return _then(_value.copyWith(getUpcomingRequestStatus: value));
+    });
+  }
+
+  @override
+  $UpcomingActionCopyWith<$Res> get action {
+    return $UpcomingActionCopyWith<$Res>(_value.action, (value) {
+      return _then(_value.copyWith(action: value));
+    });
   }
 
   @override
   $PaginationCopyWith<$Res> get pagination {
     return $PaginationCopyWith<$Res>(_value.pagination, (value) {
       return _then(_value.copyWith(pagination: value));
-    });
-  }
-
-  @override
-  $GetUpcomingRequestStatusCopyWith<$Res> get getUpcomingRequestStatus {
-    return $GetUpcomingRequestStatusCopyWith<$Res>(
-        _value.getUpcomingRequestStatus, (value) {
-      return _then(_value.copyWith(getUpcomingRequestStatus: value));
     });
   }
 }
@@ -362,14 +650,17 @@ abstract class _$UpcomingStateCopyWith<$Res>
       __$UpcomingStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Pagination pagination,
-      List<MovieEntity> movies,
-      GetUpcomingRequestStatus getUpcomingRequestStatus});
+      {RequestStatus<UpcomingResponse> getUpcomingRequestStatus,
+      UpcomingAction action,
+      Pagination pagination,
+      List<MovieEntity> movies});
 
   @override
-  $PaginationCopyWith<$Res> get pagination;
+  $RequestStatusCopyWith<UpcomingResponse, $Res> get getUpcomingRequestStatus;
   @override
-  $GetUpcomingRequestStatusCopyWith<$Res> get getUpcomingRequestStatus;
+  $UpcomingActionCopyWith<$Res> get action;
+  @override
+  $PaginationCopyWith<$Res> get pagination;
 }
 
 /// @nodoc
@@ -385,11 +676,20 @@ class __$UpcomingStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? getUpcomingRequestStatus = freezed,
+    Object? action = freezed,
     Object? pagination = freezed,
     Object? movies = freezed,
-    Object? getUpcomingRequestStatus = freezed,
   }) {
     return _then(_UpcomingState(
+      getUpcomingRequestStatus: getUpcomingRequestStatus == freezed
+          ? _value.getUpcomingRequestStatus
+          : getUpcomingRequestStatus // ignore: cast_nullable_to_non_nullable
+              as RequestStatus<UpcomingResponse>,
+      action: action == freezed
+          ? _value.action
+          : action // ignore: cast_nullable_to_non_nullable
+              as UpcomingAction,
       pagination: pagination == freezed
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
@@ -398,10 +698,6 @@ class __$UpcomingStateCopyWithImpl<$Res>
           ? _value.movies
           : movies // ignore: cast_nullable_to_non_nullable
               as List<MovieEntity>,
-      getUpcomingRequestStatus: getUpcomingRequestStatus == freezed
-          ? _value.getUpcomingRequestStatus
-          : getUpcomingRequestStatus // ignore: cast_nullable_to_non_nullable
-              as GetUpcomingRequestStatus,
     ));
   }
 }
@@ -409,23 +705,23 @@ class __$UpcomingStateCopyWithImpl<$Res>
 /// @nodoc
 class _$_UpcomingState with DiagnosticableTreeMixin implements _UpcomingState {
   const _$_UpcomingState(
-      {this.pagination = const Pagination(),
-      this.movies = const [],
-      this.getUpcomingRequestStatus = const GetUpcomingIdle()});
+      {required this.getUpcomingRequestStatus,
+      required this.action,
+      required this.pagination,
+      required this.movies});
 
-  @JsonKey(defaultValue: const Pagination())
+  @override
+  final RequestStatus<UpcomingResponse> getUpcomingRequestStatus;
+  @override
+  final UpcomingAction action;
   @override
   final Pagination pagination;
-  @JsonKey(defaultValue: const [])
   @override
   final List<MovieEntity> movies;
-  @JsonKey(defaultValue: const GetUpcomingIdle())
-  @override
-  final GetUpcomingRequestStatus getUpcomingRequestStatus;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpcomingState(pagination: $pagination, movies: $movies, getUpcomingRequestStatus: $getUpcomingRequestStatus)';
+    return 'UpcomingState(getUpcomingRequestStatus: $getUpcomingRequestStatus, action: $action, pagination: $pagination, movies: $movies)';
   }
 
   @override
@@ -433,33 +729,38 @@ class _$_UpcomingState with DiagnosticableTreeMixin implements _UpcomingState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'UpcomingState'))
-      ..add(DiagnosticsProperty('pagination', pagination))
-      ..add(DiagnosticsProperty('movies', movies))
       ..add(DiagnosticsProperty(
-          'getUpcomingRequestStatus', getUpcomingRequestStatus));
+          'getUpcomingRequestStatus', getUpcomingRequestStatus))
+      ..add(DiagnosticsProperty('action', action))
+      ..add(DiagnosticsProperty('pagination', pagination))
+      ..add(DiagnosticsProperty('movies', movies));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpcomingState &&
+            (identical(
+                    other.getUpcomingRequestStatus, getUpcomingRequestStatus) ||
+                const DeepCollectionEquality().equals(
+                    other.getUpcomingRequestStatus,
+                    getUpcomingRequestStatus)) &&
+            (identical(other.action, action) ||
+                const DeepCollectionEquality().equals(other.action, action)) &&
             (identical(other.pagination, pagination) ||
                 const DeepCollectionEquality()
                     .equals(other.pagination, pagination)) &&
             (identical(other.movies, movies) ||
-                const DeepCollectionEquality().equals(other.movies, movies)) &&
-            (identical(
-                    other.getUpcomingRequestStatus, getUpcomingRequestStatus) ||
-                const DeepCollectionEquality().equals(
-                    other.getUpcomingRequestStatus, getUpcomingRequestStatus)));
+                const DeepCollectionEquality().equals(other.movies, movies)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(getUpcomingRequestStatus) ^
+      const DeepCollectionEquality().hash(action) ^
       const DeepCollectionEquality().hash(pagination) ^
-      const DeepCollectionEquality().hash(movies) ^
-      const DeepCollectionEquality().hash(getUpcomingRequestStatus);
+      const DeepCollectionEquality().hash(movies);
 
   @JsonKey(ignore: true)
   @override
@@ -469,17 +770,20 @@ class _$_UpcomingState with DiagnosticableTreeMixin implements _UpcomingState {
 
 abstract class _UpcomingState implements UpcomingState {
   const factory _UpcomingState(
-      {Pagination pagination,
-      List<MovieEntity> movies,
-      GetUpcomingRequestStatus getUpcomingRequestStatus}) = _$_UpcomingState;
+      {required RequestStatus<UpcomingResponse> getUpcomingRequestStatus,
+      required UpcomingAction action,
+      required Pagination pagination,
+      required List<MovieEntity> movies}) = _$_UpcomingState;
 
+  @override
+  RequestStatus<UpcomingResponse> get getUpcomingRequestStatus =>
+      throw _privateConstructorUsedError;
+  @override
+  UpcomingAction get action => throw _privateConstructorUsedError;
   @override
   Pagination get pagination => throw _privateConstructorUsedError;
   @override
   List<MovieEntity> get movies => throw _privateConstructorUsedError;
-  @override
-  GetUpcomingRequestStatus get getUpcomingRequestStatus =>
-      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UpcomingStateCopyWith<_UpcomingState> get copyWith =>
@@ -487,126 +791,112 @@ abstract class _UpcomingState implements UpcomingState {
 }
 
 /// @nodoc
-class _$GetUpcomingRequestStatusTearOff {
-  const _$GetUpcomingRequestStatusTearOff();
+class _$UpcomingActionTearOff {
+  const _$UpcomingActionTearOff();
 
-  GetUpcomingIdle idle() {
-    return const GetUpcomingIdle();
+  _Idle idle() {
+    return const _Idle();
   }
 
-  GetUpcomingInProgress inProgress() {
-    return const GetUpcomingInProgress();
-  }
-
-  GetUpcomingFailed failed(AppError error) {
-    return GetUpcomingFailed(
-      error,
+  GoToDetails goToDetails({required MovieEntity movie}) {
+    return GoToDetails(
+      movie: movie,
     );
   }
 
-  GetUpcomingSucceded succeded() {
-    return const GetUpcomingSucceded();
+  GoToSearch goToSearch() {
+    return const GoToSearch();
   }
 }
 
 /// @nodoc
-const $GetUpcomingRequestStatus = _$GetUpcomingRequestStatusTearOff();
+const $UpcomingAction = _$UpcomingActionTearOff();
 
 /// @nodoc
-mixin _$GetUpcomingRequestStatus {
+mixin _$UpcomingAction {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function() inProgress,
-    required TResult Function(AppError error) failed,
-    required TResult Function() succeded,
+    required TResult Function(MovieEntity movie) goToDetails,
+    required TResult Function() goToSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function()? inProgress,
-    TResult Function(AppError error)? failed,
-    TResult Function()? succeded,
+    TResult Function(MovieEntity movie)? goToDetails,
+    TResult Function()? goToSearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetUpcomingIdle value) idle,
-    required TResult Function(GetUpcomingInProgress value) inProgress,
-    required TResult Function(GetUpcomingFailed value) failed,
-    required TResult Function(GetUpcomingSucceded value) succeded,
+    required TResult Function(_Idle value) idle,
+    required TResult Function(GoToDetails value) goToDetails,
+    required TResult Function(GoToSearch value) goToSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetUpcomingIdle value)? idle,
-    TResult Function(GetUpcomingInProgress value)? inProgress,
-    TResult Function(GetUpcomingFailed value)? failed,
-    TResult Function(GetUpcomingSucceded value)? succeded,
+    TResult Function(_Idle value)? idle,
+    TResult Function(GoToDetails value)? goToDetails,
+    TResult Function(GoToSearch value)? goToSearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetUpcomingRequestStatusCopyWith<$Res> {
-  factory $GetUpcomingRequestStatusCopyWith(GetUpcomingRequestStatus value,
-          $Res Function(GetUpcomingRequestStatus) then) =
-      _$GetUpcomingRequestStatusCopyWithImpl<$Res>;
+abstract class $UpcomingActionCopyWith<$Res> {
+  factory $UpcomingActionCopyWith(
+          UpcomingAction value, $Res Function(UpcomingAction) then) =
+      _$UpcomingActionCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$GetUpcomingRequestStatusCopyWithImpl<$Res>
-    implements $GetUpcomingRequestStatusCopyWith<$Res> {
-  _$GetUpcomingRequestStatusCopyWithImpl(this._value, this._then);
+class _$UpcomingActionCopyWithImpl<$Res>
+    implements $UpcomingActionCopyWith<$Res> {
+  _$UpcomingActionCopyWithImpl(this._value, this._then);
 
-  final GetUpcomingRequestStatus _value;
+  final UpcomingAction _value;
   // ignore: unused_field
-  final $Res Function(GetUpcomingRequestStatus) _then;
+  final $Res Function(UpcomingAction) _then;
 }
 
 /// @nodoc
-abstract class $GetUpcomingIdleCopyWith<$Res> {
-  factory $GetUpcomingIdleCopyWith(
-          GetUpcomingIdle value, $Res Function(GetUpcomingIdle) then) =
-      _$GetUpcomingIdleCopyWithImpl<$Res>;
+abstract class _$IdleCopyWith<$Res> {
+  factory _$IdleCopyWith(_Idle value, $Res Function(_Idle) then) =
+      __$IdleCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$GetUpcomingIdleCopyWithImpl<$Res>
-    extends _$GetUpcomingRequestStatusCopyWithImpl<$Res>
-    implements $GetUpcomingIdleCopyWith<$Res> {
-  _$GetUpcomingIdleCopyWithImpl(
-      GetUpcomingIdle _value, $Res Function(GetUpcomingIdle) _then)
-      : super(_value, (v) => _then(v as GetUpcomingIdle));
+class __$IdleCopyWithImpl<$Res> extends _$UpcomingActionCopyWithImpl<$Res>
+    implements _$IdleCopyWith<$Res> {
+  __$IdleCopyWithImpl(_Idle _value, $Res Function(_Idle) _then)
+      : super(_value, (v) => _then(v as _Idle));
 
   @override
-  GetUpcomingIdle get _value => super._value as GetUpcomingIdle;
+  _Idle get _value => super._value as _Idle;
 }
 
 /// @nodoc
-class _$GetUpcomingIdle
-    with DiagnosticableTreeMixin
-    implements GetUpcomingIdle {
-  const _$GetUpcomingIdle();
+class _$_Idle with DiagnosticableTreeMixin implements _Idle {
+  const _$_Idle();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GetUpcomingRequestStatus.idle()';
+    return 'UpcomingAction.idle()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'GetUpcomingRequestStatus.idle'));
+    properties..add(DiagnosticsProperty('type', 'UpcomingAction.idle'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is GetUpcomingIdle);
+    return identical(this, other) || (other is _Idle);
   }
 
   @override
@@ -616,9 +906,8 @@ class _$GetUpcomingIdle
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function() inProgress,
-    required TResult Function(AppError error) failed,
-    required TResult Function() succeded,
+    required TResult Function(MovieEntity movie) goToDetails,
+    required TResult Function() goToSearch,
   }) {
     return idle();
   }
@@ -627,9 +916,8 @@ class _$GetUpcomingIdle
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function()? inProgress,
-    TResult Function(AppError error)? failed,
-    TResult Function()? succeded,
+    TResult Function(MovieEntity movie)? goToDetails,
+    TResult Function()? goToSearch,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -641,10 +929,9 @@ class _$GetUpcomingIdle
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetUpcomingIdle value) idle,
-    required TResult Function(GetUpcomingInProgress value) inProgress,
-    required TResult Function(GetUpcomingFailed value) failed,
-    required TResult Function(GetUpcomingSucceded value) succeded,
+    required TResult Function(_Idle value) idle,
+    required TResult Function(GoToDetails value) goToDetails,
+    required TResult Function(GoToSearch value) goToSearch,
   }) {
     return idle(this);
   }
@@ -652,10 +939,9 @@ class _$GetUpcomingIdle
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetUpcomingIdle value)? idle,
-    TResult Function(GetUpcomingInProgress value)? inProgress,
-    TResult Function(GetUpcomingFailed value)? failed,
-    TResult Function(GetUpcomingSucceded value)? succeded,
+    TResult Function(_Idle value)? idle,
+    TResult Function(GoToDetails value)? goToDetails,
+    TResult Function(GoToSearch value)? goToSearch,
     required TResult orElse(),
   }) {
     if (idle != null) {
@@ -665,205 +951,107 @@ class _$GetUpcomingIdle
   }
 }
 
-abstract class GetUpcomingIdle implements GetUpcomingRequestStatus {
-  const factory GetUpcomingIdle() = _$GetUpcomingIdle;
+abstract class _Idle implements UpcomingAction {
+  const factory _Idle() = _$_Idle;
 }
 
 /// @nodoc
-abstract class $GetUpcomingInProgressCopyWith<$Res> {
-  factory $GetUpcomingInProgressCopyWith(GetUpcomingInProgress value,
-          $Res Function(GetUpcomingInProgress) then) =
-      _$GetUpcomingInProgressCopyWithImpl<$Res>;
+abstract class $GoToDetailsCopyWith<$Res> {
+  factory $GoToDetailsCopyWith(
+          GoToDetails value, $Res Function(GoToDetails) then) =
+      _$GoToDetailsCopyWithImpl<$Res>;
+  $Res call({MovieEntity movie});
+
+  $MovieEntityCopyWith<$Res> get movie;
 }
 
 /// @nodoc
-class _$GetUpcomingInProgressCopyWithImpl<$Res>
-    extends _$GetUpcomingRequestStatusCopyWithImpl<$Res>
-    implements $GetUpcomingInProgressCopyWith<$Res> {
-  _$GetUpcomingInProgressCopyWithImpl(
-      GetUpcomingInProgress _value, $Res Function(GetUpcomingInProgress) _then)
-      : super(_value, (v) => _then(v as GetUpcomingInProgress));
+class _$GoToDetailsCopyWithImpl<$Res> extends _$UpcomingActionCopyWithImpl<$Res>
+    implements $GoToDetailsCopyWith<$Res> {
+  _$GoToDetailsCopyWithImpl(
+      GoToDetails _value, $Res Function(GoToDetails) _then)
+      : super(_value, (v) => _then(v as GoToDetails));
 
   @override
-  GetUpcomingInProgress get _value => super._value as GetUpcomingInProgress;
-}
-
-/// @nodoc
-class _$GetUpcomingInProgress
-    with DiagnosticableTreeMixin
-    implements GetUpcomingInProgress {
-  const _$GetUpcomingInProgress();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GetUpcomingRequestStatus.inProgress()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'GetUpcomingRequestStatus.inProgress'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is GetUpcomingInProgress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() idle,
-    required TResult Function() inProgress,
-    required TResult Function(AppError error) failed,
-    required TResult Function() succeded,
-  }) {
-    return inProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? idle,
-    TResult Function()? inProgress,
-    TResult Function(AppError error)? failed,
-    TResult Function()? succeded,
-    required TResult orElse(),
-  }) {
-    if (inProgress != null) {
-      return inProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GetUpcomingIdle value) idle,
-    required TResult Function(GetUpcomingInProgress value) inProgress,
-    required TResult Function(GetUpcomingFailed value) failed,
-    required TResult Function(GetUpcomingSucceded value) succeded,
-  }) {
-    return inProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetUpcomingIdle value)? idle,
-    TResult Function(GetUpcomingInProgress value)? inProgress,
-    TResult Function(GetUpcomingFailed value)? failed,
-    TResult Function(GetUpcomingSucceded value)? succeded,
-    required TResult orElse(),
-  }) {
-    if (inProgress != null) {
-      return inProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class GetUpcomingInProgress implements GetUpcomingRequestStatus {
-  const factory GetUpcomingInProgress() = _$GetUpcomingInProgress;
-}
-
-/// @nodoc
-abstract class $GetUpcomingFailedCopyWith<$Res> {
-  factory $GetUpcomingFailedCopyWith(
-          GetUpcomingFailed value, $Res Function(GetUpcomingFailed) then) =
-      _$GetUpcomingFailedCopyWithImpl<$Res>;
-  $Res call({AppError error});
-}
-
-/// @nodoc
-class _$GetUpcomingFailedCopyWithImpl<$Res>
-    extends _$GetUpcomingRequestStatusCopyWithImpl<$Res>
-    implements $GetUpcomingFailedCopyWith<$Res> {
-  _$GetUpcomingFailedCopyWithImpl(
-      GetUpcomingFailed _value, $Res Function(GetUpcomingFailed) _then)
-      : super(_value, (v) => _then(v as GetUpcomingFailed));
-
-  @override
-  GetUpcomingFailed get _value => super._value as GetUpcomingFailed;
+  GoToDetails get _value => super._value as GoToDetails;
 
   @override
   $Res call({
-    Object? error = freezed,
+    Object? movie = freezed,
   }) {
-    return _then(GetUpcomingFailed(
-      error == freezed
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as AppError,
+    return _then(GoToDetails(
+      movie: movie == freezed
+          ? _value.movie
+          : movie // ignore: cast_nullable_to_non_nullable
+              as MovieEntity,
     ));
+  }
+
+  @override
+  $MovieEntityCopyWith<$Res> get movie {
+    return $MovieEntityCopyWith<$Res>(_value.movie, (value) {
+      return _then(_value.copyWith(movie: value));
+    });
   }
 }
 
 /// @nodoc
-class _$GetUpcomingFailed
-    with DiagnosticableTreeMixin
-    implements GetUpcomingFailed {
-  const _$GetUpcomingFailed(this.error);
+class _$GoToDetails with DiagnosticableTreeMixin implements GoToDetails {
+  const _$GoToDetails({required this.movie});
 
   @override
-  final AppError error;
+  final MovieEntity movie;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GetUpcomingRequestStatus.failed(error: $error)';
+    return 'UpcomingAction.goToDetails(movie: $movie)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'GetUpcomingRequestStatus.failed'))
-      ..add(DiagnosticsProperty('error', error));
+      ..add(DiagnosticsProperty('type', 'UpcomingAction.goToDetails'))
+      ..add(DiagnosticsProperty('movie', movie));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is GetUpcomingFailed &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)));
+        (other is GoToDetails &&
+            (identical(other.movie, movie) ||
+                const DeepCollectionEquality().equals(other.movie, movie)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movie);
 
   @JsonKey(ignore: true)
   @override
-  $GetUpcomingFailedCopyWith<GetUpcomingFailed> get copyWith =>
-      _$GetUpcomingFailedCopyWithImpl<GetUpcomingFailed>(this, _$identity);
+  $GoToDetailsCopyWith<GoToDetails> get copyWith =>
+      _$GoToDetailsCopyWithImpl<GoToDetails>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function() inProgress,
-    required TResult Function(AppError error) failed,
-    required TResult Function() succeded,
+    required TResult Function(MovieEntity movie) goToDetails,
+    required TResult Function() goToSearch,
   }) {
-    return failed(error);
+    return goToDetails(movie);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function()? inProgress,
-    TResult Function(AppError error)? failed,
-    TResult Function()? succeded,
+    TResult Function(MovieEntity movie)? goToDetails,
+    TResult Function()? goToSearch,
     required TResult orElse(),
   }) {
-    if (failed != null) {
-      return failed(error);
+    if (goToDetails != null) {
+      return goToDetails(movie);
     }
     return orElse();
   }
@@ -871,79 +1059,72 @@ class _$GetUpcomingFailed
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetUpcomingIdle value) idle,
-    required TResult Function(GetUpcomingInProgress value) inProgress,
-    required TResult Function(GetUpcomingFailed value) failed,
-    required TResult Function(GetUpcomingSucceded value) succeded,
+    required TResult Function(_Idle value) idle,
+    required TResult Function(GoToDetails value) goToDetails,
+    required TResult Function(GoToSearch value) goToSearch,
   }) {
-    return failed(this);
+    return goToDetails(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetUpcomingIdle value)? idle,
-    TResult Function(GetUpcomingInProgress value)? inProgress,
-    TResult Function(GetUpcomingFailed value)? failed,
-    TResult Function(GetUpcomingSucceded value)? succeded,
+    TResult Function(_Idle value)? idle,
+    TResult Function(GoToDetails value)? goToDetails,
+    TResult Function(GoToSearch value)? goToSearch,
     required TResult orElse(),
   }) {
-    if (failed != null) {
-      return failed(this);
+    if (goToDetails != null) {
+      return goToDetails(this);
     }
     return orElse();
   }
 }
 
-abstract class GetUpcomingFailed implements GetUpcomingRequestStatus {
-  const factory GetUpcomingFailed(AppError error) = _$GetUpcomingFailed;
+abstract class GoToDetails implements UpcomingAction {
+  const factory GoToDetails({required MovieEntity movie}) = _$GoToDetails;
 
-  AppError get error => throw _privateConstructorUsedError;
+  MovieEntity get movie => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GetUpcomingFailedCopyWith<GetUpcomingFailed> get copyWith =>
+  $GoToDetailsCopyWith<GoToDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetUpcomingSuccededCopyWith<$Res> {
-  factory $GetUpcomingSuccededCopyWith(
-          GetUpcomingSucceded value, $Res Function(GetUpcomingSucceded) then) =
-      _$GetUpcomingSuccededCopyWithImpl<$Res>;
+abstract class $GoToSearchCopyWith<$Res> {
+  factory $GoToSearchCopyWith(
+          GoToSearch value, $Res Function(GoToSearch) then) =
+      _$GoToSearchCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$GetUpcomingSuccededCopyWithImpl<$Res>
-    extends _$GetUpcomingRequestStatusCopyWithImpl<$Res>
-    implements $GetUpcomingSuccededCopyWith<$Res> {
-  _$GetUpcomingSuccededCopyWithImpl(
-      GetUpcomingSucceded _value, $Res Function(GetUpcomingSucceded) _then)
-      : super(_value, (v) => _then(v as GetUpcomingSucceded));
+class _$GoToSearchCopyWithImpl<$Res> extends _$UpcomingActionCopyWithImpl<$Res>
+    implements $GoToSearchCopyWith<$Res> {
+  _$GoToSearchCopyWithImpl(GoToSearch _value, $Res Function(GoToSearch) _then)
+      : super(_value, (v) => _then(v as GoToSearch));
 
   @override
-  GetUpcomingSucceded get _value => super._value as GetUpcomingSucceded;
+  GoToSearch get _value => super._value as GoToSearch;
 }
 
 /// @nodoc
-class _$GetUpcomingSucceded
-    with DiagnosticableTreeMixin
-    implements GetUpcomingSucceded {
-  const _$GetUpcomingSucceded();
+class _$GoToSearch with DiagnosticableTreeMixin implements GoToSearch {
+  const _$GoToSearch();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GetUpcomingRequestStatus.succeded()';
+    return 'UpcomingAction.goToSearch()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'GetUpcomingRequestStatus.succeded'));
+    properties..add(DiagnosticsProperty('type', 'UpcomingAction.goToSearch'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is GetUpcomingSucceded);
+    return identical(this, other) || (other is GoToSearch);
   }
 
   @override
@@ -953,24 +1134,22 @@ class _$GetUpcomingSucceded
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() idle,
-    required TResult Function() inProgress,
-    required TResult Function(AppError error) failed,
-    required TResult Function() succeded,
+    required TResult Function(MovieEntity movie) goToDetails,
+    required TResult Function() goToSearch,
   }) {
-    return succeded();
+    return goToSearch();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? idle,
-    TResult Function()? inProgress,
-    TResult Function(AppError error)? failed,
-    TResult Function()? succeded,
+    TResult Function(MovieEntity movie)? goToDetails,
+    TResult Function()? goToSearch,
     required TResult orElse(),
   }) {
-    if (succeded != null) {
-      return succeded();
+    if (goToSearch != null) {
+      return goToSearch();
     }
     return orElse();
   }
@@ -978,30 +1157,28 @@ class _$GetUpcomingSucceded
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetUpcomingIdle value) idle,
-    required TResult Function(GetUpcomingInProgress value) inProgress,
-    required TResult Function(GetUpcomingFailed value) failed,
-    required TResult Function(GetUpcomingSucceded value) succeded,
+    required TResult Function(_Idle value) idle,
+    required TResult Function(GoToDetails value) goToDetails,
+    required TResult Function(GoToSearch value) goToSearch,
   }) {
-    return succeded(this);
+    return goToSearch(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetUpcomingIdle value)? idle,
-    TResult Function(GetUpcomingInProgress value)? inProgress,
-    TResult Function(GetUpcomingFailed value)? failed,
-    TResult Function(GetUpcomingSucceded value)? succeded,
+    TResult Function(_Idle value)? idle,
+    TResult Function(GoToDetails value)? goToDetails,
+    TResult Function(GoToSearch value)? goToSearch,
     required TResult orElse(),
   }) {
-    if (succeded != null) {
-      return succeded(this);
+    if (goToSearch != null) {
+      return goToSearch(this);
     }
     return orElse();
   }
 }
 
-abstract class GetUpcomingSucceded implements GetUpcomingRequestStatus {
-  const factory GetUpcomingSucceded() = _$GetUpcomingSucceded;
+abstract class GoToSearch implements UpcomingAction {
+  const factory GoToSearch() = _$GoToSearch;
 }

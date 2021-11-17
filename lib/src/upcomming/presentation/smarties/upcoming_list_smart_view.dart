@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tmdb_client_2/src/shared/domain/movie_entity.dart';
 import 'package:tmdb_client_2/src/upcomming/domain/usecases/upcoming_usecase.dart';
 import 'package:tmdb_client_2/src/upcomming/presentation/dummies/upcoming_screen.dart';
 
@@ -19,5 +20,11 @@ class UpcomingListSmartView extends StatelessWidget {
     );
   }
 
-  void _listener(BuildContext context, UpcomingState state) {}
+  void _listener(BuildContext context, UpcomingState state) {
+    state.action.when(
+      idle: () => {},
+      goToDetails: (MovieEntity movie) => {print('[SelectedMovie]: $movie')},
+      goToSearch: () => {print('[searchSelected]')},
+    );
+  }
 }

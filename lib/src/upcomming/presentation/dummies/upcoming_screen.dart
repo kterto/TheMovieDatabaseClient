@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tmdb_client_2/src/shared/data/types/request_status.dart';
+import 'package:tmdb_client_2/src/shared/domain/movie_entity.dart';
 import 'package:tmdb_client_2/src/upcomming/domain/usecases/upcoming_usecase.dart';
 import 'package:tmdb_client_2/src/upcomming/presentation/widgets/movie_card_grid.dart';
 
@@ -45,23 +47,31 @@ class UpcomingScreen extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _upcomingUsecase.add(
+          SearchPressed(),
+        ),
+        child: Icon(
+          Icons.search,
+          color: Theme.of(context).appBarTheme.color,
+        ),
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          if (state.movies.isEmpty &&
-              state.getUpcomingRequestStatus is GetUpcomingIdle) {
+          if (state.movies.isEmpty && state.getUpcomingRequestStatus is Idle) {
             _upcomingUsecase.add(StartedUpcoming());
           }
 
           if (state.movies.isEmpty) {
             return state.getUpcomingRequestStatus.map(
               idle: (_) => Container(),
-              inProgress: (_) => Center(
+              loading: (_) => Center(
                 child: CircularProgressIndicator(),
               ),
               failed: (failed) => Center(
                 child: Text(failed.error.slug ?? 'Não há lançamentos'),
               ),
-              succeded: (_) => Container(),
+              succeeded: (_) => Container(),
             );
           } else {
             return Stack(
@@ -72,12 +82,12 @@ class UpcomingScreen extends StatelessWidget {
                   loading: true,
                   viewScroller: _scrollController,
                   moviesList: state.movies,
-                  onCardPressed: () => print('pertou'),
+                  onCardPressed: (MovieEntity movie) =>
+                      _upcomingUsecase.add(SelectMovie(movie: movie)),
                 ),
                 Positioned(
                   child: Offstage(
-                    offstage: state.getUpcomingRequestStatus
-                        is! GetUpcomingInProgress,
+                    offstage: state.getUpcomingRequestStatus is! Loading,
                     child: Container(
                       height: 70,
                       width: constraints.maxWidth,
@@ -97,8 +107,7 @@ class UpcomingScreen extends StatelessWidget {
   }
 
   void _listener(BuildContext context, UpcomingState state) {
-    if (state.movies.isEmpty &&
-        state.getUpcomingRequestStatus is GetUpcomingIdle) {
+    if (state.movies.isEmpty && state.getUpcomingRequestStatus is Idle) {
       _upcomingUsecase.add(StartedUpcoming());
     }
 

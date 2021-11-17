@@ -3,18 +3,24 @@ part of 'upcoming_usecase.dart';
 @freezed
 class UpcomingState with _$UpcomingState {
   const factory UpcomingState({
-    @Default(const Pagination()) Pagination pagination,
-    @Default([]) List<MovieEntity> movies,
-    @Default(GetUpcomingIdle())
-        GetUpcomingRequestStatus getUpcomingRequestStatus,
+    required RequestStatus<UpcomingResponse> getUpcomingRequestStatus,
+    required UpcomingAction action,
+    required Pagination pagination,
+    required List<MovieEntity> movies,
   }) = _UpcomingState;
+
+  factory UpcomingState.initial() => UpcomingState(
+        getUpcomingRequestStatus: Idle(),
+        action: _Idle(),
+        movies: [],
+        pagination: Pagination(),
+      );
 }
 
 @freezed
-class GetUpcomingRequestStatus with _$GetUpcomingRequestStatus {
-  const factory GetUpcomingRequestStatus.idle() = GetUpcomingIdle;
-  const factory GetUpcomingRequestStatus.inProgress() = GetUpcomingInProgress;
-  const factory GetUpcomingRequestStatus.failed(AppError error) =
-      GetUpcomingFailed;
-  const factory GetUpcomingRequestStatus.succeded() = GetUpcomingSucceded;
+class UpcomingAction with _$UpcomingAction {
+  const factory UpcomingAction.idle() = _Idle;
+  const factory UpcomingAction.goToDetails({required MovieEntity movie}) =
+      GoToDetails;
+  const factory UpcomingAction.goToSearch() = GoToSearch;
 }
