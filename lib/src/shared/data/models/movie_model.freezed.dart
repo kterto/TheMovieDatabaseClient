@@ -29,7 +29,8 @@ class _$MovieModelTearOff {
       @JsonKey(fromJson: _toDateTime)
           DateTime? releaseDate,
       double? voteAverage,
-      String? overView,
+      @JsonKey(name: 'overview')
+          String? overView,
       int? id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           List<Genre>? genre}) {
@@ -65,6 +66,7 @@ mixin _$MovieModel {
   @JsonKey(fromJson: _toDateTime)
   DateTime? get releaseDate => throw _privateConstructorUsedError;
   double? get voteAverage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'overview')
   String? get overView => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(
@@ -93,7 +95,8 @@ abstract class $MovieModelCopyWith<$Res> {
       @JsonKey(fromJson: _toDateTime)
           DateTime? releaseDate,
       double? voteAverage,
-      String? overView,
+      @JsonKey(name: 'overview')
+          String? overView,
       int? id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           List<Genre>? genre});
@@ -180,7 +183,8 @@ abstract class _$MovieModelCopyWith<$Res> implements $MovieModelCopyWith<$Res> {
       @JsonKey(fromJson: _toDateTime)
           DateTime? releaseDate,
       double? voteAverage,
-      String? overView,
+      @JsonKey(name: 'overview')
+          String? overView,
       int? id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           List<Genre>? genre});
@@ -267,7 +271,8 @@ class _$_MovieModel extends _MovieModel {
       @JsonKey(fromJson: _toDateTime)
           this.releaseDate,
       this.voteAverage,
-      this.overView,
+      @JsonKey(name: 'overview')
+          this.overView,
       this.id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           this.genre})
@@ -292,6 +297,7 @@ class _$_MovieModel extends _MovieModel {
   @override
   final double? voteAverage;
   @override
+  @JsonKey(name: 'overview')
   final String? overView;
   @override
   final int? id;
@@ -375,7 +381,8 @@ abstract class _MovieModel extends MovieModel {
       @JsonKey(fromJson: _toDateTime)
           DateTime? releaseDate,
       double? voteAverage,
-      String? overView,
+      @JsonKey(name: 'overview')
+          String? overView,
       int? id,
       @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
           List<Genre>? genre}) = _$_MovieModel;
@@ -400,6 +407,7 @@ abstract class _MovieModel extends MovieModel {
   @override
   double? get voteAverage => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'overview')
   String? get overView => throw _privateConstructorUsedError;
   @override
   int? get id => throw _privateConstructorUsedError;

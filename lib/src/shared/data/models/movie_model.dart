@@ -19,7 +19,7 @@ class MovieModel with _$MovieModel {
     String? title,
     @JsonKey(fromJson: _toDateTime) DateTime? releaseDate,
     double? voteAverage,
-    String? overView,
+    @JsonKey(name: 'overview') String? overView,
     int? id,
     @JsonKey(name: "genre_ids", fromJson: _genreListFromGenreIdsList, toJson: _genreListToJson)
         List<Genre>? genre,
